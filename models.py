@@ -167,5 +167,5 @@ def mk_adder(session, vendor):
 
 if __name__ == '__main__':
     from eralchemy import render_er
-    render_er(Base, 'doc/er_diagram.svg')
+    render_er(Base, 'doc/er_model.svg')
 
