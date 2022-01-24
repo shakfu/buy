@@ -1,0 +1,27 @@
+
+
+# -----------------------------------------------------
+# core
+
+## models
+sqlalchemy
+
+# -----------------------------------------------------
+# testing
+pytest
+factory_boy
+
+# visualization
+eralchemy
+
+
+# -----------------------------------------------------
+# db clis
+
+## for postgresql
+pgcli
+
+## for sqlite
+litecli
+
+
