@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""buy.py: an online purchasing tool
+"""buy.py: a prototype for an online purchasing support tool
 
-## target faatures
+## target features
 
 - organization and persistence of all buying data
 - repl for buying support
@@ -36,7 +36,7 @@ __all__ = [  # model api
     'Vendor',
     'Brand',
     'Product',
-    'Price',
+    'Quote',
 
     # helpers
     'mk_adder',
@@ -93,7 +93,7 @@ class Vendor(Object, Base):
     brands = relationship('Brand',
                           secondary=VendorBrand,
                           back_populates='vendors')
-    prices = relationship('Price', back_populates='vendor')
+    quotes = relationship('Quote', back_populates='vendor')
 
     def add_product(self,
                     session,
@@ -115,12 +115,12 @@ class Vendor(Object, Base):
             session.add(_product)
 
         if _brand and _product:
-            _price = Price(product=_product,
+            _quote = Quote(product=_product,
                            vendor=self,
                            currency=self.currency,
                            value=price,
                            discount=discount)
-            session.add(_price)
+            session.add(_quote)
 
 
 class Brand(Object, Base):
@@ -135,38 +135,35 @@ class Product(Object, Base):
     """Item sold by brand via vendor"""
     brand_id = Column(Integer, ForeignKey('brand.id'))
     brand = relationship('Brand', back_populates='products')
-    prices = relationship('Price', back_populates='product')
+    quotes = relationship('Quote', back_populates='product')
 
 
-class Price(Base):
-    """Quoted Price of Item from a vendor"""
+class Quote(Base):
+    """Quoted Quote of Item from a vendor"""
     __tablename__ = 'price'
 
     id = Column(Integer, primary_key=True)
     # time_created = Column(DateTime(timezone=True), default=func.now())
     date_created = Column(Date, default=func.now())
     product_id = Column(Integer, ForeignKey('product.id'))
-    product = relationship('Product', back_populates='prices')
+    product = relationship('Product', back_populates='quotes')
     vendor_id = Column(Integer, ForeignKey('vendor.id'))
-    vendor = relationship('Vendor', back_populates='prices')
+    vendor = relationship('Vendor', back_populates='quotes')
     currency = Column(String, default='USD')
     value = Column(Float)
     discount = Column(Float, default=0.0)
 
     def __repr__(self):
-        # return f"<Price(vendor='{self.vendor.name}', product='{self.product.name}', price='{self.value} {self.currency}')>"
-        return f"<Price({self.vendor.name} / {self.product.brand.name} {self.product.name} / {self.value} {self.currency})>"
+        return f"<Quote({self.vendor.name} / {self.product.brand.name} {self.product.name} / {self.value} {self.currency})>"
 
-
-# def call(product, brand, price, currency='USD'): pass
 
 
 def mk_adder(session, vendor):
     def _func(brand, product, price, discount=0.0):
         vendor.add_product(session, brand, product, price, discount)
         session.commit()
-
     return _func
+
 
 if __name__ == '__main__':
     from eralchemy import render_er

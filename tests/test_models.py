@@ -26,8 +26,8 @@ def test_model(dbsession):
     product_c = Product(name='productC', brand=microsoft)
 
     # price quotes
-    quote1 = Price(product=product_a, vendor=acme_corp, currency='USD', value=280)
-    quote2 = Price(product=product_a, vendor=amazon, currency='GBP', value=210)
+    quote1 = Quote(product=product_a, vendor=acme_corp, currency='USD', value=280)
+    quote2 = Quote(product=product_a, vendor=amazon, currency='GBP', value=210)
 
     # relationships
     acme_corp.brands = [yamaha, samsung]

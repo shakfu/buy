@@ -38,7 +38,7 @@ class VendorFactory(factory.alchemy.SQLAlchemyModelFactory):
         model = models.Vendor
 
 
-class PriceFactory(factory.alchemy.SQLAlchemyModelFactory):
+class QuoteFactory(factory.alchemy.SQLAlchemyModelFactory):
     id = factory.Sequence(lambda n: '%s' % n)
     date_created = factory.Faker('date_this_decade')
     currency = factory.Faker('currency_code')
@@ -48,4 +48,4 @@ class PriceFactory(factory.alchemy.SQLAlchemyModelFactory):
     vendor = factory.SubFactory(VendorFactory)
 
     class Meta:
-        model = models.Price
+        model = models.Quote
