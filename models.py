@@ -140,7 +140,7 @@ class Product(Object, Base):
 
 class Quote(Base):
     """Quoted Quote of Item from a vendor"""
-    __tablename__ = 'price'
+    __tablename__ = 'quote'
 
     id = Column(Integer, primary_key=True)
     # time_created = Column(DateTime(timezone=True), default=func.now())

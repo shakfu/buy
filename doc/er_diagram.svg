@@ -69,11 +69,11 @@
 <text text-anchor="start" x="233.82" y="-313.09" font-family="Times,serif" font-size="14.00">{0,1}</text>
 <text text-anchor="start" x="192.3" y="-331.33" font-family="Times,serif" font-size="14.00">0..N</text>
 </g>
-<!-- price -->
+<!-- quote -->
 <g id="node4" class="node">
-<title>price</title>
+<title>quote</title>
 <polygon fill="none" stroke="black" points="505.5,-354.5 505.5,-382.5 652.5,-382.5 652.5,-354.5 505.5,-354.5"/>
-<text text-anchor="start" x="559.5" y="-365.7" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="16.00">price</text>
+<text text-anchor="start" x="557" y="-365.7" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="16.00">quote</text>
 <polygon fill="none" stroke="black" points="505.5,-329.5 505.5,-354.5 652.5,-354.5 652.5,-329.5 505.5,-329.5"/>
 <text text-anchor="start" x="510.5" y="-339.3" font-family="Helvetica,sans-Serif" text-decoration="underline" font-size="14.00">id</text>
 <text text-anchor="start" x="521.5" y="-339.3" font-family="Helvetica,sans-Serif" font-size="14.00"> [INTEGER]</text>
@@ -96,9 +96,9 @@
 <text text-anchor="start" x="510.5" y="-189.3" font-family="Helvetica,sans-Serif" font-size="14.00">discount</text>
 <text text-anchor="start" x="561.5" y="-189.3" font-family="Helvetica,sans-Serif" font-size="14.00"> [FLOAT]</text>
 </g>
-<!-- vendor&#45;&#45;price -->
+<!-- vendor&#45;&#45;quote -->
 <g id="edge2" class="edge">
-<title>vendor&#45;&#45;price</title>
+<title>vendor&#45;&#45;quote</title>
 <path fill="none" stroke="#7f7f7f" stroke-dasharray="5,2" d="M192.17,-374.05C258.19,-376.77 347.64,-375.39 424,-356.5 448.62,-350.41 473.91,-340.02 496.69,-328.89"/>
 <text text-anchor="start" x="465.69" y="-317.69" font-family="Times,serif" font-size="14.00">{0,1}</text>
 <text text-anchor="start" x="192.17" y="-362.85" font-family="Times,serif" font-size="14.00">0..N</text>
@@ -144,9 +144,9 @@
 <text text-anchor="start" x="237.29" y="-186.98" font-family="Times,serif" font-size="14.00">{0,1}</text>
 <text text-anchor="start" x="165.66" y="-201.55" font-family="Times,serif" font-size="14.00">0..N</text>
 </g>
-<!-- product&#45;&#45;price -->
+<!-- product&#45;&#45;quote -->
 <g id="edge5" class="edge">
-<title>product&#45;&#45;price</title>
+<title>product&#45;&#45;quote</title>
 <path fill="none" stroke="#7f7f7f" stroke-dasharray="5,2" d="M420.5,-217.89C444.86,-227.76 471.99,-238.75 496.75,-248.78"/>
 <text text-anchor="start" x="465.75" y="-237.58" font-family="Times,serif" font-size="14.00">{0,1}</text>
 <text text-anchor="start" x="420.5" y="-206.69" font-family="Times,serif" font-size="14.00">0..N</text>
