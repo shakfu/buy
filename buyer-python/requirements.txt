@@ -19,7 +19,7 @@ eralchemy
 # db clis
 
 ## for postgresql
-pgcli
+## pgcli
 
 ## for sqlite
 litecli

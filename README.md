@@ -1,12 +1,17 @@
-# buy prototype
+# Buyer
 
-A prototype for an online purchasing support tool.
 
-## target core features
-- organization and persistence of all buying data
+A few variations on a basic online purchasing support tool.
+
+Meant to help learn about the strengths (and weaknesses) of each language used.
+
+## Target core features
+
+- commandline interface
+- organization and persistence (sqlite and alternatively, postgres) of all buying data
+	- inventory of purchased items
 - repl for buying support
 - webscraping of vendor's prices
-- inventory of purchased items
 - report generation (xlsx, html, pdf..)
     - quote comparison
     - shipping costs attribution based on destination (from, to)
@@ -16,9 +21,11 @@ A prototype for an online purchasing support tool.
 
 ## Develop in Different Languages
 
-1. python 
-2. swift
+1. [python](buyer-python)
+2. [swift](buyer-swift)
 3. c++
+4. rust
+5. go
 
 ## Current Model
 
