@@ -36,13 +36,13 @@ def test_model(dbsession):
     # session
     session = dbsession
 
+    # vendor.add_product
     acme_corp.add_product(session, 'sony', 'walkman', 99.99)
-    pc = mk_adder(session, acme_corp)
-    ss = mk_adder(session, amazon)
+
     session.add_all([
         eur, gbp, 
         acme_corp, amazon, 
-        yamaha, samsung, microsoft, 
+        yamaha, samsung, microsoft,
         product_a, product_b, product_c,
         quote1, quote2
     ])
@@ -50,5 +50,9 @@ def test_model(dbsession):
     # session.commit()
 
     assert product_a.name == 'productA'
+    assert Product.by_name(session, 'productB').brand.name == 'samsung'
+    assert repr(product_a) == "<Product(name='productA')>"
+    assert repr(eur) == "<Forex(USD -> EUR: 0.921)>"
+    assert repr(quote1) == '<Quote(acme-corp / yamaha productA / 280 USD)>'
 
     assert 'walkman' in [p.name for p in session.query(Product).all()]

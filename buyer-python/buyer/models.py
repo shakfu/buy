@@ -21,6 +21,7 @@ from pathlib import Path
 
 from sqlalchemy import (Column, Date, DateTime, Float, ForeignKey, Integer,
                         String, Table, create_engine)
+from sqlalchemy import exc
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy.sql import func
@@ -39,7 +40,7 @@ __all__ = [  # model api
     'Quote',
 
     # helpers
-    'mk_adder',
+    # 'mk_adder',
 ]
 
 Base = declarative_base()
@@ -60,7 +61,7 @@ class Object:
     name = Column(String, unique=True)
 
     def __repr__(self):
-        return f"<{self.__class__.__name__}(name='{self.name}')"
+        return f"<{self.__class__.__name__}(name='{self.name}')>"
 
 
 class Forex(Base):
@@ -74,7 +75,7 @@ class Forex(Base):
     usd_per_unit = Column(Float)
 
     def __repr__(self):
-        return f"<Forex(USD -> {self.name}: {self.units_per_usd})>"
+        return f"<Forex(USD -> {self.code}: {self.units_per_usd})>"
 
 
 VendorBrand = Table(
@@ -155,14 +156,6 @@ class Quote(Base):
 
     def __repr__(self):
         return f"<Quote({self.vendor.name} / {self.product.brand.name} {self.product.name} / {self.value} {self.currency})>"
-
-
-
-def mk_adder(session, vendor):
-    def _func(brand, product, price, discount=0.0):
-        vendor.add_product(session, brand, product, price, discount)
-        session.commit()
-    return _func
 
 
 if __name__ == '__main__':
