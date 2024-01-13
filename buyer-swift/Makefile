@@ -1,12 +1,19 @@
+
+HOMEBREW := $(shell brew --prefix)
+LIB := $(HOMEBREW)/lib
+INCLUDE := $(HOMEBREW)/include
+
+
+.PHONY: all build release format clean
+
 all: build
 
-
 build:
-	-@swift build -Xlinker -L/usr/local/lib
+	-@swift build -Xlinker -L$(LIB) -Xcc -I$(INCLUDE)
 
 
 release:
-	-@swift build -c release -Xlinker -L/usr/local/lib
+	-@swift build -c release -Xlinker -L$(LIB) -Xcc -I$(INCLUDE)
 
 
 format:
